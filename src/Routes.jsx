@@ -1,5 +1,6 @@
 import React from "react";
 import { Tacos, TacoDetails, SearchPage, Home } from "./components";
+import { Outlet } from "react-router-dom";
 
 export const routes = [
     {
@@ -15,14 +16,22 @@ export const routes = [
     {
         path: '/tacos/:taco',
         element: (
-            <Tacos />
+            <Outlet />
         ),
-    },
-    {
-        path: '/tacos/:taco/details',
-        element: (
-            <TacoDetails />
-        )
-    },
+        children:[
+            {
+                index: true,
+                element: (
+                    <Tacos />
+                )
+            },
+            {
+                path: 'details',
+                element: (
+                    <TacoDetails />
+                )
+            }
+        ]
+    }
 ]
 
