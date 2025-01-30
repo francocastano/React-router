@@ -94,3 +94,12 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+li{
+    text-decoration: none;
+}
+
+nav a.is-active {
+    font-weight: bold;
+    pointer-events: none;
+}
