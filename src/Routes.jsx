@@ -1,24 +1,7 @@
 import React from "react";
-import { Tacos, TacoDetails, SearchPage, Home } from "./components";
-import { Outlet, Navigate, useNavigate } from "react-router-dom";
+import { Tacos, TacoDetails, SearchPage, Home, Login} from "./components";
+import { Outlet, Navigate } from "react-router-dom";
 import { useAuth } from "./useAuth";
-
-const Login = () => {
-    const { login } = useAuth()
-    const navigate = useNavigate()
-
-    const handleClick = () => {
-        login()
-        navigate('/search-page')
-    }
-
-    return (
-        <div>
-            <h1>Login</h1>
-            <button onClick={handleClick}>Login</button>
-        </div>
-    )
-}
 
 const ProtectedRoute = ({ children }) => {
     const { isAuthenticated } = useAuth()
