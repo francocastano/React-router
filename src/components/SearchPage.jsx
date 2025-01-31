@@ -10,8 +10,8 @@ export const SearchPage = () => {
         'pollo',
     ]
     const links = tacos.map(taco => (
-        <li>
-            <Link key={taco} to={`/tacos/${taco}`}>{taco}</Link>
+        <li key={taco}>
+            <Link to={`/tacos/${taco}`}>{taco}</Link>
         </li>
     ))
     return (

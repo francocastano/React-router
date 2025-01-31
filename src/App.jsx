@@ -1,8 +1,9 @@
 import React from "react"
 import './App.css'
-import { Link, Route, Routes, useParams, Outlet, NavLink as NavLinkReactRouter, useRoutes} from "react-router-dom"
+import { useRoutes} from "react-router-dom"
 import { NavLink } from "./NavLink"
 import { routes } from "./Routes"
+import { AuthProvider } from "./useAuth"
 
 
 export function App() {
@@ -18,7 +19,9 @@ export function App() {
                     </ul>
                 </nav>
             </header>
-            {element}
+            <AuthProvider>
+                {element}
+            </AuthProvider>
             <h1>My App</h1>
             <p>It's working!</p>
         </div>
