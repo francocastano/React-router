@@ -1,5 +1,5 @@
 import React from "react";
-import { Tacos, TacoDetails, SearchPage, Home, Login} from "./components";
+import { Tacos, TacoDetails, SearchPage, Home, Login, Logout} from "./components";
 import { Outlet, Navigate } from "react-router-dom";
 import { useAuth } from "./useAuth";
 
@@ -13,7 +13,13 @@ const ProtectedRoute = ({ children }) => {
 export const routes = [
     {
         path: '/',
-        element: <Home />
+        element: (
+            <ProtectedRoute><Home /></ProtectedRoute>
+        )
+    },
+    {
+        path: '/logout',
+        element: <Logout />
     },
     {
         path: '/login',
