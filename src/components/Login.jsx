@@ -1,15 +1,16 @@
 
 import React from 'react'
 import { useAuth } from '../useAuth'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export const Login = () => {
     const { login } = useAuth()
     const navigate = useNavigate()
-
+    const {state} = useLocation()
+    
     const handleClick = () => {
         login()
-        navigate('/search-page')
+        navigate(state?.pathname ?? '/')
     }
 
     return (

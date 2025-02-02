@@ -1,12 +1,13 @@
 import React from "react";
 import { Tacos, TacoDetails, SearchPage, Home, Login, Logout} from "./components";
-import { Outlet, Navigate } from "react-router-dom";
+import { Outlet, Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "./useAuth";
 
 const ProtectedRoute = ({ children }) => {
     const { isAuthenticated } = useAuth()
+    const location = useLocation()
     if (!isAuthenticated) {
-        return <Navigate to="/login" />
+        return <Navigate to="/login" state={location} />
     }
     return children
 }
@@ -36,7 +37,7 @@ export const routes = [
     {
         path: '/tacos/:taco',
         element: (
-            <Outlet />
+            <ProtectedRoute><Outlet /></ProtectedRoute>
         ),
         children: [
             {

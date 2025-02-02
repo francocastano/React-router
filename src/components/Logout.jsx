@@ -13,7 +13,7 @@ export const Logout = () => {
 
     const handleClick = () => {
         logout()
-        navigate('/home')
+        navigate('/')
     }
 
     return <button onClick={handleClick}>Logout</button>
